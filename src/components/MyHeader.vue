@@ -11,14 +11,15 @@
 <script>
 
     import { store } from '../store.js';
-    
-    export default {
 
+    export default {
+        data () {
+            return {
+                store
+            }
+        },
         name: 'MyHeader',
 
-        data () {
-            store
-        },
     }
 </script>
 

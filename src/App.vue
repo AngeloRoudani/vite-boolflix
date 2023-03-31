@@ -21,7 +21,7 @@
     export default {
         data () {
             return {
-            store
+                store
             }
         },
         components: {
@@ -34,23 +34,23 @@
             getMovies() {
                 let moviesUrl = 'https://api.themoviedb.org/3/search/movie?api_key=0d02e8641763075cf268b150dd5bb88c';
 
-                if (store.searchMovies == '') {
-                    this.store.message = true
-                } else {
-                    moviesUrl += `&query=${this.store.searchMovies}&language=it-IT`
+                
+                if (!store.searchMovies == '') {
+                    moviesUrl += `&query=${store.searchMovies}&language=it-IT`;
+                    store.message = false;
+                    store.searchMovies = '';
                 }
+                
 
                 axios.get(moviesUrl) 
                     .then(response => {
-                        this.store.MoviesData = response.results;
+                        this.store.MoviesData = response.data.results;
                         console.log(this.store.MoviesData); 
                     })
                 
-            }
+            },
         },
-        created () {
-                this.getMovies();
-        }
+        
     }
 
 </script>

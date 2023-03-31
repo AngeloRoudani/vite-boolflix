@@ -31,5 +31,6 @@
         display: flex;
         width: 90%;
         margin: auto;
+        flex-wrap: wrap;
     }
 </style>

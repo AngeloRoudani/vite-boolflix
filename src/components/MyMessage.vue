@@ -11,7 +11,9 @@
     export default {
         name: 'MoviesCard',
         data () {
-            store
+            return {
+                store
+            }
         },
         props: {
         
