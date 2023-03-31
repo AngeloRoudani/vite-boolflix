@@ -1,8 +1,12 @@
 <template>
     <body>
-        <MyHeader @startSearch="getMovies"/>
+        <header>
+            <MyHeader @startSearch="getMovies"/>
+        </header>
+        
         <main>
             <MyMovies />
+            <MyMessage/>
         </main>
     </body>
 </template>
@@ -11,6 +15,7 @@
     import axios from 'axios'; 
     import MyHeader from './components/MyHeader.vue';
     import MyMovies from './components/MyMovies.vue';
+    import MyMessage from './components/MyMessage.vue'
     import { store } from './store.js';
  
     export default {
@@ -21,18 +26,23 @@
         },
         components: {
             MyHeader,
-            MyMovies
+            MyMovies,
+            MyMessage
         },
         methods: {
             
-            getMovies () {
+            getMovies() {
                 let moviesUrl = 'https://api.themoviedb.org/3/search/movie?api_key=0d02e8641763075cf268b150dd5bb88c';
-                if (store.searchMovies > 0) {
-                    moviesUrl += `&query=${store.searchMovies}&language=it-IT`;
+
+                if (store.searchMovies == '') {
+                    this.store.message = true
+                } else {
+                    moviesUrl += `&query=${this.store.searchMovies}&language=it-IT`
                 }
+
                 axios.get(moviesUrl) 
                     .then(response => {
-                        this.store.MoviesData = response.data.results;
+                        this.store.MoviesData = response.results;
                         console.log(this.store.MoviesData); 
                     })
                 

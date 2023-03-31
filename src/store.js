@@ -5,5 +5,6 @@ export const store = reactive(
         MoviesData: [],
         SeriesData: [],
         searchMovies: '',
+        message: false,
     }
 );

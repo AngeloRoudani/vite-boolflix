@@ -11,7 +11,6 @@
   <script >
       export default {
           name: 'MoviesCard',
-
           props: {
             title: String,
             original: String,
