@@ -4,8 +4,13 @@
     box-sizing: border-box;
 }
 
-.body {
-    font-family: 'Open Sans', sans-serif;
+body {
+    font-family: 'Open Sans ', sans-serif;
+}
+
+main {
+    background-color: #2b2a33;
+    height: calc(100% - 80px);
 }
 
 section {

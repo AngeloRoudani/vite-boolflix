@@ -1,14 +1,15 @@
 <template>
     <div class="container">
-        <h2 v-show="store.showTitle == true">TvSeries</h2>
+        <h2 v-show="store.showTitle == true" class="format">TvSeries</h2>
         <div class="card_wrapper">
             <div v-for="(element, index) in store.SeriesData" class="movieCard" :key="index">
                 <SeriesCard 
                     :titleTv="element.name"
                     :originalTv="element.original_name"
                     :languageTv="element.original_language"
-                    :voteTv="element.vote_average"
+                    :voteTv="Math.ceil(element.vote_average / 2)"
                     :imageTv="`https://image.tmdb.org/t/p/w342${element.poster_path}`"
+                    :plotTv="element.overview"
                     />
             </div>
         </div>

@@ -9,7 +9,7 @@
     import { store } from '../store.js';
 
     export default {
-        name: 'MoviesCard',
+        name: 'MyIntro',
         data () {
             return {
                 store
@@ -24,7 +24,10 @@
 
 <style scoped lang="scss">
 
-
+h3 {
+    color: #fff;
+    text-align: center;
+}
 
 
 

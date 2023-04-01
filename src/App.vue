@@ -5,7 +5,7 @@
         </header>
         
         <main>
-            <MyMessage/>
+            <MyIntro />
             <section>
                 <MyMovies />
             </section>
@@ -22,7 +22,7 @@
     import axios from 'axios'; 
     import MyHeader from './components/MyHeader.vue';
     import MyMovies from './components/MyMovies.vue';
-    import MyMessage from './components/MyMessage.vue';
+    import MyIntro from './components/MyIntro.vue';
     import TvSeries from './components/TvSeries.vue';
     import { store } from './store.js';
  
@@ -35,7 +35,7 @@
         components: {
             MyHeader,
             MyMovies,
-            MyMessage,
+            MyIntro,
             TvSeries
         },
         methods: {
@@ -75,7 +75,7 @@
 
 <style lang="scss">
 
-@use './styles/general.scss' as *;
+@use './styles/general.scss';
 
 
 
