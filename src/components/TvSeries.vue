@@ -1,30 +1,31 @@
 <template>
     <div class="container">
-        <h2 v-show="store.showTitle == true">Movies</h2>
+        <h2 v-show="store.showTitle == true">TvSeries</h2>
         <div class="card_wrapper">
-            <div v-for="(element, index) in store.MoviesData" class="movieCard" :key="index">
-                <MoviesCard 
-                    :title="element.title"
-                    :original="element.original_title"
-                    :language="element.original_language"
-                    :vote="element.vote_average"/>
+            <div v-for="(element, index) in store.SeriesData" class="movieCard" :key="index">
+                <SeriesCard 
+                    :titleTv="element.name"
+                    :originalTv="element.original_name"
+                    :languageTv="element.original_language"
+                    :voteTv="element.vote_average"/>
             </div>
         </div>
     </div>
 </template>
     
-<script >
-    import MoviesCard from './MoviesCard.vue';
+<script>
+    import SeriesCard from './SeriesCard.vue';
     import { store } from '../store.js';
+
     export default {
         data() {
             return {
                 store
             }
         },
-        name: 'MyMovies',
+        name: 'TvSeries',
         components: {
-            MoviesCard
+            SeriesCard
         },
         
     }
@@ -35,7 +36,6 @@
         width: 90%;
         margin: auto;
     }
-    
     .card_wrapper {
         display: flex;
         flex-wrap: wrap;
