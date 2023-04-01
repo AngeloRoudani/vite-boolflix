@@ -7,7 +7,9 @@
                     :titleTv="element.name"
                     :originalTv="element.original_name"
                     :languageTv="element.original_language"
-                    :voteTv="element.vote_average"/>
+                    :voteTv="element.vote_average"
+                    :imageTv="`https://image.tmdb.org/t/p/w342${element.poster_path}`"
+                    />
             </div>
         </div>
     </div>
@@ -40,6 +42,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        margin: auto;
     }
 
     .movieCard {

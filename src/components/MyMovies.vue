@@ -7,7 +7,9 @@
                     :title="element.title"
                     :original="element.original_title"
                     :language="element.original_language"
-                    :vote="element.vote_average"/>
+                    :vote="element.vote_average"
+                    :imageMovie="`https://image.tmdb.org/t/p/w342${element.poster_path}`"
+                    />
             </div>
         </div>
     </div>
@@ -35,7 +37,7 @@
         width: 90%;
         margin: auto;
     }
-    
+
     .card_wrapper {
         display: flex;
         flex-wrap: wrap;

@@ -1,11 +1,11 @@
 <template>
     <div class="card_movies">
+        <img :src="imageMovie" :alt="title" class="poster">
         <h4>{{ title }}</h4>
         <h4>{{ original }}</h4>
         <h4>{{ vote }}</h4>
-        <h4>{{ language }}</h4>
         <div v-for="(flag, index) in store.flags" :key="index" class="flag">
-            <img v-if="flag.tongue == language" :src="flag.src" :alt="bandiera">
+            <img v-if="flag.tongue == language" :src="flag.src" :alt="language">
         </div>
       
     </div>
@@ -27,7 +27,8 @@
                 title: String,
                 original: String,
                 vote: Number,
-                language: String
+                language: String,
+                imageMovie: String
         }
         
 }
@@ -38,9 +39,14 @@
 
 .flag {
     width: 30px;
-    img {
-        width: 100%;
-    }
+}
+
+.flag img {
+    width: 100%;
+}
+
+.poster {
+    width: 100%
 }
 
 
