@@ -2,8 +2,11 @@
     <div class="card_series" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave">
         <img v-show="imageTv_switch == true" :src= "imageTv" :alt="titleTv" class="poster">
         <div v-show="cardTv_switch == true" class="description">
-            <h4>Titolo Originale {{ originalTv }}</h4>
-            <h4 v-show="!titleTv == originalTv" class="m-top">Titolo: {{ titleTv }}</h4>
+            <div v-if="!(originalTv == titleTv)">
+                <h4>Titolo: {{ titleTv }}</h4>
+                <h4 class="m-top">Titolo Originale: {{ originalTv }}</h4>
+            </div>
+            <h4 v-else>Titolo Originale: {{ originalTv }}</h4>
             <div class="m-top">Voto:
                 <span>
                     <i v-for="index in voteTv" :key="index" :class="starSolid"></i>

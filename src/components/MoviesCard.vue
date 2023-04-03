@@ -2,7 +2,7 @@
     <div class="card_movies" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave">
         <img v-show="image_switch == true" :src="imageMovie" :alt="title" class="poster">
         <div v-show="card_switch == true" class="description">
-            <div v-if="!original == title">
+            <div v-if="!(original == title)">
                 <h4>Titolo: {{ title }}</h4>
                 <h4 class="m-top">Titolo Originale: {{ original }}</h4>
             </div>
