@@ -2,9 +2,9 @@
     <div class="card_series" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave">
         <img v-show="imageTv_switch == true" :src= "imageTv" :alt="titleTv" class="poster">
         <div v-show="cardTv_switch == true" class="description">
-            <h4>Titolo: {{ titleTv }}</h4>
             <h4>Titolo Originale {{ originalTv }}</h4>
-            <div>Voto:
+            <h4 v-show="!titleTv == originalTv" class="m-top">Titolo: {{ titleTv }}</h4>
+            <div class="m-top">Voto:
                 <span>
                     <i v-for="index in voteTv" :key="index" :class="starSolid"></i>
                 </span>
@@ -12,10 +12,10 @@
                     <i v-for="index in (5 - voteTv)" :key="index" :class="starEmpty"></i>
                 </span>
             </div>
-            <div v-for="(flag, index) in store.flags" :key="index" class="flag">
+            <div v-for="(flag, index) in store.flags" :key="index" class="flag m-top">
                 <img v-if="flag.tongue == languageTv" :src="flag.src" :alt="languageTv"/>
             </div>
-            <p>Trama: {{ plotTv }}</p>
+            <p class="m-top">Trama: {{ plotTv }}</p>
         </div>
     </div>
 </template>
@@ -79,7 +79,11 @@ img {
     border: solid 1px #136cd8;
     color: #fff;
     overflow-y: scroll;
+    padding: 1rem;
+}
 
+.m-top {
+    margin-top: .5rem;
 }
 .poster {
     width: 100%

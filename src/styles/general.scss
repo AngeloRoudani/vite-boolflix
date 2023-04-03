@@ -10,7 +10,7 @@ body {
 
 main {
     background-color: #2b2a33;
-    height: calc(100% - 80px);
+    min-height: calc(100vh - 80px);
 }
 
 section {

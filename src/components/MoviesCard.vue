@@ -2,9 +2,12 @@
     <div class="card_movies" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave">
         <img v-show="image_switch == true" :src="imageMovie" :alt="title" class="poster">
         <div v-show="card_switch == true" class="description">
-            <h4>Titolo: {{ title }}</h4>
-            <h4>Titolo Originale: {{ original }}</h4>
-            <div>Voto:
+            <div v-if="!original == title">
+                <h4>Titolo: {{ title }}</h4>
+                <h4 class="m-top">Titolo Originale: {{ original }}</h4>
+            </div>
+            <h4 v-else>Titolo Originale: {{ original }}</h4>     
+            <div class="m-top">Voto:
                 <span>
                     <i v-for="index in vote" :key="index" :class="starSolid"></i>
                 </span>
@@ -12,10 +15,10 @@
                     <i v-for="index in (5 - vote)" :key="index" :class="starEmpty"></i>
                 </span>
             </div>
-            <div v-for="(flag, index) in store.flags" :key="index" class="flag">
+            <div v-for="(flag, index) in store.flags" :key="index" class="flag m-top">
                 <img v-if="flag.tongue == language" :src="flag.src" :alt="language">
             </div>
-            <p>Trama: {{ plot }}</p>
+            <p class="m-top">Trama: {{ plot }}</p>
         </div>
       
     </div>
@@ -82,8 +85,11 @@
     border: solid 1px #136cd8;
     color: #fff;
     overflow-y: scroll;
+    padding: 1rem;
 }
-
+.m-top {
+    margin-top: .5rem;
+}
 .poster {
     width: 100%
 }

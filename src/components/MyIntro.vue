@@ -1,6 +1,6 @@
 <template>
     <div v-if="store.message" class="message">
-        <h3> Cosa vorresti guardare? </h3>
+        <h1> Cosa vorresti guardare? </h1>
 
     </div>
 </template>
@@ -24,9 +24,17 @@
 
 <style scoped lang="scss">
 
-h3 {
+.message {
+    height: calc(100vh - 80px);
+    position: relative;
+}
+
+h1 {
     color: #fff;
     text-align: center;
+    position: absolute;
+    top: 40%;
+    left: 40%;
 }
 
 
