@@ -13,7 +13,6 @@
                 </span>
             </div>
             <div v-for="(flag, index) in store.flags" :key="index" class="flag">
-                Lingua:
                 <img v-if="flag.tongue == languageTv" :src="flag.src" :alt="languageTv"/>
             </div>
             <p>Trama: {{ plotTv }}</p>
@@ -79,6 +78,7 @@ img {
     height: 100%;
     border: solid 1px #136cd8;
     color: #fff;
+    overflow-y: scroll;
 
 }
 .poster {

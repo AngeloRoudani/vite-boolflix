@@ -81,6 +81,7 @@
     height: 100%;
     border: solid 1px #136cd8;
     color: #fff;
+    overflow-y: scroll;
 }
 
 .poster {
