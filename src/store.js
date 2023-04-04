@@ -36,6 +36,6 @@ export const store = reactive(
                 src:'https://www.iconexperience.com/_img/v_collection_png/256x256/shadow/flag_south_korea.png',
                 tongue: 'ko'
             }
-        ]
+        ],
     }
 );

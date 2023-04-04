@@ -15,9 +15,12 @@
                     <i v-for="index in (5 - voteTv)" :key="index" :class="starEmpty"></i>
                 </span>
             </div>
-            <div v-for="(flag, index) in store.flags" :key="index" class="flag m-top">
-                <img v-if="flag.tongue == languageTv" :src="flag.src" :alt="languageTv"/>
+            <h4>Lingua: {{ languageTv }}</h4>
+            <div v-for="(element, index) in store.flags" :key="index" class="flag m-top"> 
+                <img  v-if="(element.tongue == languageTv)" :src="element.src" alt="flag"/>
+                <div v-else class="d-none"></div>
             </div>
+            
             <p class="m-top">Trama: {{ plotTv }}</p>
         </div>
     </div>
@@ -30,12 +33,10 @@
         data() {
             return {
                 store,
-                flagShow: false,
-                result: '',
                 starSolid: 'fa-solid fa-star full',
                 starEmpty: 'fa-regular fa-star empty',
                 imageTv_switch: true,
-                cardTv_switch: false
+                cardTv_switch: false,
             }
         },
             name: 'SeriesCard',
@@ -56,7 +57,7 @@
             mouseleave: function () {
                 this.imageTv_switch = true;
                 this.cardTv_switch = false;
-            }
+            },
         }
         
 }
@@ -65,16 +66,28 @@
 <style scoped lang="scss">
 
 .flag {
-    width: 20px;
     background-color: #2b2a33;
+    display: inline-block;
+    text-align: left;
+}
+
+.d-none {
+    display: none;
+    height: 0px;
+}
+
+.d-block {
+    display: block;
 }
 
 .card_series {
     height: 470px;
 }
 
-img {
-    width: 100%;
+.flag img {
+    width: 20px;
+    height: 25px;
+    display: inline-block;
 }
 .description {
     width: 100%;

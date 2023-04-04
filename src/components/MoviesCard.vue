@@ -15,12 +15,15 @@
                     <i v-for="index in (5 - vote)" :key="index" :class="starEmpty"></i>
                 </span>
             </div>
-            <div v-for="(flag, index) in store.flags" :key="index" class="flag m-top">
-                <img v-if="flag.tongue == language" :src="flag.src" :alt="language">
+            <h4 >Lingua: {{ language }}</h4>
+            <div v-for="(flag, index) in store.flags" :key="index" class="flag m-top"> 
+                <img v-if="(flag.tongue == language)" :src="flag.src" alt="flag"/>
+                <div v-else class="d-none"></div>
             </div>
+            
             <p class="m-top">Trama: {{ plot }}</p>
         </div>
-      
+
     </div>
 </template>
 
@@ -32,11 +35,11 @@
             return {
                 store,
                 flagShow: false,
-                result: '',
                 starSolid: 'fa-solid fa-star full',
                 starEmpty: 'fa-regular fa-star empty',
                 image_switch: true,
-                card_switch: false
+                card_switch: false,
+                showStopMovie: 'd-none'
             }
         },
             name: 'MoviesCard',
@@ -57,8 +60,10 @@
             mouseleave: function () {
                 this.image_switch = true;
                 this.card_switch = false;
-            }
-        }
+            },
+           
+        },
+
         
 }
 
@@ -67,16 +72,21 @@
 <style scoped lang="scss">
 
 .flag {
-    width: 20px;
     background-color: #2b2a33;
+    display: inline-block;
+    text-align: left;
 }
-
+.d-none {
+    display: none;
+    height: 0px;
+}
 .card_movies {
     height: 470px;
 }
 .flag img {
-    width: 100%;
-    background-color: #2b2a33;
+    width: 20px;
+    height: 25px;
+    display: inline-block;
 }
 
 .description {
