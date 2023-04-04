@@ -6,14 +6,7 @@
         
         <main>
             <MyIntro />
-            <section>
                 <MyMovies />
-            </section>
-            <section>
-                <TvSeries />
-            </section>
-            
-           
         </main>
     </body>
 </template>
@@ -23,7 +16,6 @@
     import MyHeader from './components/MyHeader.vue';
     import MyMovies from './components/MyMovies.vue';
     import MyIntro from './components/MyIntro.vue';
-    import TvSeries from './components/TvSeries.vue';
     import { store } from './store.js';
  
     export default {
@@ -36,7 +28,6 @@
             MyHeader,
             MyMovies,
             MyIntro,
-            TvSeries
         },
         methods: {
             

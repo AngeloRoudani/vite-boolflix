@@ -1,6 +1,8 @@
 <template>
     <div class="card_series" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave">
+        <!--Immagine scheda-->
         <img v-show="imageTv_switch == true" :src= "imageTv" :alt="titleTv" class="poster">
+        <!--Descrizione scheda-->
         <div v-show="cardTv_switch == true" class="description">
             <div v-if="!(originalTv == titleTv)">
                 <h4>Titolo: {{ titleTv }}</h4>
