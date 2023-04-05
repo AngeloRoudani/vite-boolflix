@@ -66,12 +66,16 @@
                 this.cardTv_switch = false;
             },
             getGenresTv () {
+                let genreString = '';
+
                 for ( let i = 0; i < this.store.genreList.length; i++) {
-                    for (let n = 0; n < this.genreTv.length; n++)
-                    if (this.genreTv[n] == this.store.genreList[i].id) {
-                        return this.store.genreList[i].name
+                    for (let n = 0; n < this.genreTv.length; n++) {
+                        if (this.genreTv[n] == this.store.genreList[i].id) {
+                            genreString += "\u00A0" + this.store.genreList[i].name
+                        }
                     }
                 }
+                return genreString;
             }
         }
         
