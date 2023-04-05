@@ -8,7 +8,9 @@
                 <h4>Titolo: {{ title }}</h4>
                 <h4 class="m-top">Titolo Originale: {{ original }}</h4>
             </div>
-            <h4 v-else>Titolo Originale: {{ original }}</h4>     
+            <h4 v-else>Titolo Originale: {{ original }}</h4>  
+            <h4>Genere:</h4>
+                <span>{{ getGenresMovie ()}}</span>   
             <div class="m-top">Voto:
                 <span>
                     <i v-for="index in vote" :key="index" :class="starSolid"></i>
@@ -41,7 +43,6 @@
                 starEmpty: 'fa-regular fa-star empty',
                 image_switch: true,
                 card_switch: false,
-                showStopMovie: 'd-none'
             }
         },
             name: 'MoviesCard',
@@ -51,7 +52,8 @@
                 vote: Number,
                 language: String,
                 imageMovie: String,
-                plot: String
+                plot: String,
+                genre: Array
         },
         methods: {
             mouseover: function () {
@@ -63,6 +65,15 @@
                 this.image_switch = true;
                 this.card_switch = false;
             },
+            getGenresMovie () {
+                for ( let i = 0; i < this.store.genreList.length; i++) {
+                    for (let n = 0; n < this.genre.length; n++)
+                    if (this.genre[n] == this.store.genreList[i].id) {
+                        return this.store.genreList[i].name
+                    }
+                }
+                
+            }
            
         },
 

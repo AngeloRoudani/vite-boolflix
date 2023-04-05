@@ -9,6 +9,10 @@
                 <h4 class="m-top">Titolo Originale: {{ originalTv }}</h4>
             </div>
             <h4 v-else>Titolo Originale: {{ originalTv }}</h4>
+            <div class="m-top">
+                <h4>Genere:</h4>
+                <span>{{ getGenresTv ()}}</span>
+            </div>
             <div class="m-top">Voto:
                 <span>
                     <i v-for="index in voteTv" :key="index" :class="starSolid"></i>
@@ -48,7 +52,8 @@
                 voteTv: Number,
                 languageTv: String,
                 imageTv: String,
-                plotTv: String
+                plotTv: String,
+                genreTv: Array
         },
         methods: {
             mouseover: function () {
@@ -60,6 +65,14 @@
                 this.imageTv_switch = true;
                 this.cardTv_switch = false;
             },
+            getGenresTv () {
+                for ( let i = 0; i < this.store.genreList.length; i++) {
+                    for (let n = 0; n < this.genreTv.length; n++)
+                    if (this.genreTv[n] == this.store.genreList[i].id) {
+                        return this.store.genreList[i].name
+                    }
+                }
+            }
         }
         
 }

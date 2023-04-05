@@ -10,6 +10,7 @@
                     :vote="Math.ceil(element.vote_average / 2)"
                     :imageMovie="`https://image.tmdb.org/t/p/w342${element.poster_path}`"
                     :plot="element.overview"
+                    :genre="element.genre_ids"
                     />
             </div>
         </div>
@@ -25,6 +26,7 @@
                     :voteTv="Math.ceil(element.vote_average / 2)"
                     :imageTv="`https://image.tmdb.org/t/p/w342${element.poster_path}`"
                     :plotTv="element.overview"
+                    :genreTv="element.genre_ids"
                     />
             </div>
         </div>
@@ -70,6 +72,6 @@
 
     .movieCard {
         width: calc(100% / 5);
-        margin-top: 2rem;
+        margin-top: 5rem;
     }
 </style>
