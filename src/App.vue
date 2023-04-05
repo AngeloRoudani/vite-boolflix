@@ -57,6 +57,8 @@
                 })
                 
             },
+
+            /*implementazione generi*/
             getGenre () {
 
                 axios.get('https://api.themoviedb.org/3/genre/movie/list?api_key=0d02e8641763075cf268b150dd5bb88c') 
@@ -75,26 +77,26 @@
                     })
                 
             },
+            /*funzione di unione generi*/
             getGenreUnion () {
                 for (let i = 0; i < this.store.movieGenre.length; i++) {
 
-                    this.store.genreList.push(this.store.movieGenre[i])
+                    this.store.genreList.push(this.store.movieGenre[i]);
 
                 }
                 for (let i = 0; i < this.store.seriesGenre.length; i++) {
+                    this.store.genreList.push(this.store.seriesGenre[i]);
 
-                    let seriesId = this.store.seriesGenre[i].id
-
-                    for (let n = 0; n < this.store.genreList.length; i++) {
-                        let genreId = this.store.genreList[n].id
-                        
-                        if (!(seriesId == genreId)) {
-                            this.store.genreList.push(this.store.seriesGenre[i])
-                        }
-                    }
                     
                 }
                 console.log(this.store.genreList);
+
+                for ( let i = 0; i < this.store.genreList.length; i++) {
+                    let genreId = this.store.genreList[i].id
+                    if (this.store.seriesGenre.includes(genreId) && this.store.movieGenre.includes(genreId)) {
+                        this.store.genreList.splice(this.store.genreList[i], 1)
+                    }
+                }
             }
 
         
