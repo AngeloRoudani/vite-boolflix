@@ -67,11 +67,11 @@
             },
             getGenresMovie () {
                 let genreString = '';
-
-                for ( let i = 0; i < this.store.genreList.length; i++) {
-                    for (let n = 0; n < this.genre.length; n++) {
+                for (let n = 0; n < this.genre.length; n++) {
+                    for ( let i = 0; i < this.store.genreList.length; i++) {
+                    
                         if (this.genre[n] == this.store.genreList[i].id) {
-                            genreString += "\u00A0" + this.store.genreList[i].name;
+                            genreString += "\u00A0" + this.store.genreList[i].name + "-";
                         }
                     }
                 }

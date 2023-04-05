@@ -67,11 +67,12 @@
             },
             getGenresTv () {
                 let genreString = '';
+                for (let n = 0; n < this.genreTv.length; n++) {
 
-                for ( let i = 0; i < this.store.genreList.length; i++) {
-                    for (let n = 0; n < this.genreTv.length; n++) {
+                    for ( let i = 0; i < this.store.genreList.length; i++) {
+                    
                         if (this.genreTv[n] == this.store.genreList[i].id) {
-                            genreString += "\u00A0" + this.store.genreList[i].name
+                            genreString += "\u00A0" + this.store.genreList[i].name + "-";
                         }
                     }
                 }

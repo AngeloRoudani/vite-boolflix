@@ -30,7 +30,7 @@
             MyIntro,
         },
         methods: {
-            
+            /*chiamata API serie e film*/
             getMovies() {
                 let moviesUrl = 'https://api.themoviedb.org/3/search/movie?api_key=0d02e8641763075cf268b150dd5bb88c';
                 let tvSeriesUrl = 'https://api.themoviedb.org/3/search/tv?api_key=0d02e8641763075cf268b150dd5bb88c';
