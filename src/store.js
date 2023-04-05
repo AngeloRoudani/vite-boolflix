@@ -37,5 +37,8 @@ export const store = reactive(
                 tongue: 'ko'
             }
         ],
+        genreList: [],
+        movieGenre: [],
+        seriesGenre: []
     }
 );

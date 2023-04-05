@@ -57,8 +57,52 @@
                 })
                 
             },
+            getGenre () {
+
+                axios.get('https://api.themoviedb.org/3/genre/movie/list?api_key=0d02e8641763075cf268b150dd5bb88c') 
+                    .then(response => {
+                        this.store.movieGenre = response.data.genres;
+                        console.log(this.store.movieGenre);
+                       
+                        
+                    })
+                axios.get('https://api.themoviedb.org/3/genre/tv/list?api_key=0d02e8641763075cf268b150dd5bb88c') 
+                    .then(response => {
+                        this.store.seriesGenre = response.data.genres;
+                        console.log(this.store.seriesGenre)
+                        this.getGenreUnion();
+                        
+                    })
+                
+            },
+            getGenreUnion () {
+                for (let i = 0; i < this.store.movieGenre.length; i++) {
+
+                    this.store.genreList.push(this.store.movieGenre[i])
+
+                }
+                for (let i = 0; i < this.store.seriesGenre.length; i++) {
+
+                    let seriesId = this.store.seriesGenre[i].id
+
+                    for (let n = 0; n < this.store.genreList.length; i++) {
+                        let genreId = this.store.genreList[n].id
+                        
+                        if (!(seriesId == genreId)) {
+                            this.store.genreList.push(this.store.seriesGenre[i])
+                        }
+                    }
+                    
+                }
+                console.log(this.store.genreList);
+            }
+
+        
             
         },
+        created () {
+            this.getGenre();
+        }
         
     }
 
