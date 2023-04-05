@@ -98,7 +98,7 @@
     height: 0px;
 }
 .card_movies {
-    height: 470px;
+    height: 518px;
 }
 .flag img {
     width: 20px;

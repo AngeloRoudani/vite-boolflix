@@ -100,7 +100,7 @@
 }
 
 .card_series {
-    height: 470px;
+    height: 518px;
 }
 
 .flag img {
