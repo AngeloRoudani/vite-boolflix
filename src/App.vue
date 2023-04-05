@@ -65,42 +65,35 @@
                     .then(response => {
                         this.store.movieGenre = response.data.genres;
                         console.log(this.store.movieGenre);
-                       
+                        this.getMovieUnion();
                         
                     })
                 axios.get('https://api.themoviedb.org/3/genre/tv/list?api_key=0d02e8641763075cf268b150dd5bb88c') 
                     .then(response => {
                         this.store.seriesGenre = response.data.genres;
                         console.log(this.store.seriesGenre)
-                        this.getGenreUnion();
-                        
+                        this.getSeriesUnion();
                     })
-                
+                    console.log(this.store.genreList);
             },
             /*funzione di unione generi*/
-            getGenreUnion () {
+            getMovieUnion () {
                 for (let i = 0; i < this.store.movieGenre.length; i++) {
 
+                    if (!this.store.genreList.includes(this.store.movieGenre[i])) {
                     this.store.genreList.push(this.store.movieGenre[i]);
-
+                    }
                 }
+                
+            },
+            getSeriesUnion () {
                 for (let i = 0; i < this.store.seriesGenre.length; i++) {
-                    this.store.genreList.push(this.store.seriesGenre[i]);
-
                     
-                }
-                console.log(this.store.genreList);
-
-                for ( let i = 0; i < this.store.genreList.length; i++) {
-                    let genreId = this.store.genreList[i].id
-                    if (this.store.seriesGenre.includes(genreId) && this.store.movieGenre.includes(genreId)) {
-                        this.store.genreList.splice(this.store.genreList[i], 1)
+                    if (!this.store.genreList.includes(this.store.seriesGenre[i])) {
+                        this.store.genreList.push(this.store.seriesGenre[i]);
                     }
                 }
             }
-
-        
-            
         },
         created () {
             this.getGenre();
